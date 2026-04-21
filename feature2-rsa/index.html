@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RSA Cryptography Toolkit</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+
+  <h1> RSA Cryptography Toolkit</h1>
+
+  <!-- TAB MENU -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('keygen')">Tạo khóa</button>
+    <button class="tab" onclick="showTab('encrypt')">Mã hóa</button>
+    <button class="tab" onclick="showTab('decrypt')">Giải mã</button>
+  </div>
+
+  <!-- PANEL 1: TẠO KHÓA -->
+  <div id="tab-keygen" class="panel active">
+    <h2>Tạo cặp khóa RSA</h2>
+    <label>Độ dài khóa:</label>
+    <select id="keysize">
+      <option value="1024">1024-bit</option>
+      <option value="2048" selected>2048-bit</option>
+    </select>
+    <br/><br/>
+    <button onclick="generateKeys()">Tạo khóa ngẫu nhiên</button>
+    <div class="key-group">
+      <label>Public Key:</label>
+      <textarea id="pubkey-out" rows="8" readonly></textarea>
+    </div>
+    <div class="key-group">
+      <label>Private Key:</label>
+      <textarea id="privkey-out" rows="8" readonly></textarea>
+    </div>
+  </div>
+
+  <!-- PANEL 2: MÃ HÓA -->
+  <div id="tab-encrypt" class="panel">
+    <h2>Mã hóa văn bản</h2>
+    <label>Plaintext:</label>
+    <textarea id="enc-plain" rows="4" placeholder="Nhập văn bản cần mã hóa..."></textarea>
+    <label>Public Key (PEM):</label>
+    <textarea id="enc-pubkey" rows="8" placeholder="Dán Public Key vào đây..."></textarea>
+    <button onclick="pasteKey('pub', 'enc-pubkey')">Dùng khóa vừa tạo</button>
+    <button onclick="doEncrypt()">Mã hóa</button>
+    <label>Ciphertext (Base64):</label>
+    <textarea id="enc-out" rows="4" readonly></textarea>
+  </div>
+
+  <!-- PANEL 3: GIẢI MÃ -->
+  <div id="tab-decrypt" class="panel">
+    <h2>Giải mã văn bản</h2>
+    <label>Ciphertext (Base64):</label>
+    <textarea id="dec-cipher" rows="4" placeholder="Dán ciphertext vào đây..."></textarea>
+    <label>Private Key (PEM):</label>
+    <textarea id="dec-privkey" rows="8" placeholder="Dán Private Key vào đây..."></textarea>
+    <button onclick="pasteKey('priv', 'dec-privkey')">Dùng khóa vừa tạo</button>
+    <button onclick="doDecrypt()">Giải mã</button>
+    <label>Plaintext:</label>
+    <textarea id="dec-out" rows="4" readonly></textarea>
+  </div>
+
+  <script src="rsa.js"></script>
+</body>
+</html>
