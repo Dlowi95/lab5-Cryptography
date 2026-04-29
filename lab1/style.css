@@ -1,0 +1,45 @@
+body {
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+input, textarea, select {
+  width: 300px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+textarea {
+  height: 80px;
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+  background: #22c55e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+#output {
+  margin-top: 20px;
+  color: #facc15;
+  word-wrap: break-word;
+}
