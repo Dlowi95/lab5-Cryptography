@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSA Lab Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🔐 RSA Encryption Tool</h1>
+
+<div class="box">
+  <h2>Key Generation</h2>
+  <input id="p" placeholder="Enter p (hex)">
+  <input id="q" placeholder="Enter q (hex)">
+  <input id="e" placeholder="Enter e (hex)">
+  <button onclick="generateKey()">Generate</button>
+
+  <p>n: <span id="n"></span></p>
+  <p>φ(n): <span id="phi"></span></p>
+  <p>d: <span id="d"></span></p>
+</div>
+
+<div class="box">
+  <h2>Encrypt</h2>
+  <input id="plain" placeholder="Enter message">
+  <button onclick="encrypt()">Encrypt</button>
+  <p>Cipher: <span id="cipher"></span></p>
+</div>
+
+<div class="box">
+  <h2>Decrypt</h2>
+  <input id="cipherInput" placeholder="Enter cipher (hex)">
+  <button onclick="decrypt()">Decrypt</button>
+  <p>Message: <span id="message"></span></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
